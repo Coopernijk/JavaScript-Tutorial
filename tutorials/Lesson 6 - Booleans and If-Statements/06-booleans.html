@@ -1,0 +1,143 @@
+
+
+<!--
+
+in this lesson:
+1. Boolean value (true, false)
+2. IF-statements
+3. Comparison (>, <, >=, <=, ===, !==) and Logicak Operator (&&, ||, !)
+4. Building algorithm for Rock Paper Scissors
+5. Truthy and Falsy value
+6. Shortcuts for IF-statements (ternary, guard, default)
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <title>Booleans</title>
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  <link rel="stylesheet" href="">
+
+  <style>
+  </style>
+</head>
+
+
+<body>
+ 
+
+  <script>
+    console.log(typeof (true))
+
+    console.log(3 > 5)
+    console.log (5 == '5.00') // '==' will convert string into number and then compares them with result true
+    console.log (5 === '5.00') // '===' will not accept 2 different types of value and will result in false
+    console.log(3 > 5 - 5) // in order of operation, boolean operation will be below + or -
+
+    //if-else statement
+    if (false) {
+      console.log('hello')
+    } else {
+      console.log('else')
+    }
+
+
+    const age = 15;
+
+    //practical example: driver's age, multiple statements
+    if (age >= 16) {
+      console.log('You can drive');
+      console.log('Congrats');
+    } 
+    else if (age >= 14) {
+      console.log('Almost there!');
+    }
+     else {
+      console.log('You can not drive');
+    }
+
+    //logical operator for AND
+    console.log (true && false);
+    console.log (0.2 >= 0 && 0.2 < 1/3);
+
+    //logical operator for OR
+    console.log (true || false);
+
+    //logical operator for NOT
+    console.log (!false);
+
+
+
+    //Local Scope cannot be accesed outside, unlike Global Scope which can be accesed anywhere
+    var abel = 1;
+    //this code will return error: undefined
+    if (1 === 2) {
+      var bonny = 2;
+      console.log (abel + bonny);
+    }
+    else
+    {
+      console.log (bonny)
+    }
+    //this code is correct
+    var bonny = 2;
+    if (1 === 2) {
+      console.log (abel + bonny);
+    }
+    else
+    {
+      console.log (bonny)
+    }
+    //also, don't use var unnecesarily, since this variable can conflict with both global and local scope
+
+
+
+    //truthy and falsy boolean
+    //falsy values are: (false) (0) ('') (NaN) (undefined) (null). everything else will return as truthy
+    if (0) {console.log('truthy')}
+    
+    const cartQuantity = 5;
+    if (cartQuantity) {
+      console.log ('cart has products')
+    }
+
+    //below is a code that invert a number zero which also mean false in boolean into a true boolean
+    console.log(!0);
+
+    // executing math operation betwen string and number will result in an error: NaN (Not a Number)
+    console.log('text' / 5);
+
+    //variables (let) that do not exist, out of scope, or not assigned will result in an error: undefined
+    let variable1;
+    console.log(variable1)
+
+    //Ternary operator ?:
+    //Shortcut for IF statement. can be used to be a value, will execute ELSE if false
+    true ? 'truthy' : 'falsy';
+    //example
+    const result = true ? 'truthy' : 'falsy';
+    console.log(result);
+
+    //Guard operator &&
+    //will execute values on the right of && IF its true, else it wont work (and therefore no ELSE)
+    false && console.log('helloooooooo');
+    //example
+    const message = 5 && 'hello';
+    console.log(message);
+
+    //Default operator
+    //will ALWAYS execute an IF statement in sequence (whirc require no CONDITIONAL)
+    'EUR' || 'USD';
+    //example
+    const currency = 'EUR' || 'USD';
+    console.log(currency);
+
+
+  </script>
+
+</body>
+</html>

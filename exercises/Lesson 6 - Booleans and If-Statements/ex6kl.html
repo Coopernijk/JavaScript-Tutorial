@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  <link rel="stylesheet" href="ex6kl.css">
+</head>
+
+<body>
+
+  <div class="exercises-box">
+    <div class="flexheader">
+      <div class="texthead">
+        <div>Cart Quantity Project</div>
+        <div>Note: Continuing from exercises in ex6.html</div>
+      </div>
+    </div>
+    
+    <div class="gridview">
+
+      <div class="exercise0">
+
+        <button onclick="
+          console.log (`Cart Quantity: ${cartQuantity}`);
+          ">Show Quantity
+        </button>
+
+        <button onclick="
+          cartQuantity >= 10 ? alert('The cart is full') : 
+          cartQuantity ++;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">Add to Cart
+        </button>
+
+        <button onclick="
+          cartQuantity >= 9 ? alert('The cart is full') : 
+          cartQuantity += 2;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">+2
+        </button>
+
+        <button onclick="
+          cartQuantity >= 8 ? alert('The cart is full') : 
+          cartQuantity = cartQuantity + 3;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">+3
+        </button>
+
+        <button onclick="
+          cartQuantity >= 7 ? alert('The cart is full') : 
+          cartQuantity = cartQuantity + 4;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">+4
+        </button>
+
+        <button onclick="
+          cartQuantity >= 6 ? alert('The cart is full') : 
+          cartQuantity = cartQuantity + 5;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">+5
+        </button>
+
+        <button onclick="
+          cartQuantity <= 1 ? alert('Not enough items in the cart') :
+          cartQuantity -= 2;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">-2
+        </button>
+
+        <button onclick="
+          cartQuantity <= 2 ? alert('Not enough items in the cart') :
+          cartQuantity -= 3;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">-3
+        </button>
+
+        <button onclick="
+          cartQuantity <= 0 ? alert('Not enough items in the cart') :
+          console.log (cartQuantity -- && `Cart Quantity: ${cartQuantity}`);
+        ">Remove from Cart
+        </button>
+
+        <button onclick="
+          cartQuantity = 0;
+          console.log ('Cart was reset');
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">Reset Cart
+        </button>
+
+      </div>
+      
+    </div>
+  </div>
+
+  
+<script>
+  let name = "Coopernjk";                   
+  console.log (`My name is: ${name}`);      
+  let cost = 5 + ( 2 * 3 ) + 9;             
+  console.log (`Cost of food: $${cost}`);   
+  let tax = Math.round( cost * 0.1 );       
+  console.log (`Tax (10%): $${tax}`);       
+
+  let totalCost = cost + tax;               
+  console.log (`Total cost: $${totalCost}`)
+
+  let cartQuantity = 0;
+</script>
+</body>
+</html>
