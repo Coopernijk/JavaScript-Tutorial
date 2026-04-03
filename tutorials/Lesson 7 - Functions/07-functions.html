@@ -1,0 +1,50 @@
+
+
+<!--
+
+in this lesson:
+
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <title>Functions</title>
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  <link rel="stylesheet" href="">
+
+  <style>
+  </style>
+</head>
+
+
+<body>
+ 
+/**/
+  <script>
+    /*function is useful to create code usability to perform repeatable operations*/
+    function function1() {
+      console.log('hello');
+      console.log(2+2);
+    }
+    function1();
+
+
+    // parameter puts a value into a function;
+    // it behaves like a value and limited to it's local function scope
+    // it can also takes multiple parameters. however, caling that function will have to match the number of its source parameter, otherwise it wil return error:NaN
+    // you can also declare a default value to fix this problem (0.2 in this case) to avoid such problem
+    function calculatedTax (cost, taxPercent = 0.2) {
+      console.log(cost * taxPercent)
+    }
+    calculatedTax(2000, 0.2);
+    calculatedTax(5000);
+
+  </script>
+
+</body>
+</html>
