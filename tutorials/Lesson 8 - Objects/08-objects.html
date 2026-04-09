@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Objects</title>
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  <link rel="stylesheet" href="ex5.css">
+</head>
+
+<style>
+  body {
+    background-color: gray;
+  }
+</style>
+
+<body>
+<!--
+  In this lesson:
+  - Objects = group related values together
+  - Added a score to Rock Paper Scissors
+  - Built-in objects (JSON, localStorage)
+  - More details (null, auto-boxing, references)
+  - Shortcuts (destructuring, shorthand property, shorthand method)   
+-->
+
+
+<script>
+  // Object allows coder to orginize and use related variables
+  const product = {
+    name : 'socks', // property-value pair
+    price : 1090
+  }
+  // display all that is in 'product'
+  console.log(product);
+
+  // display only name's value using 'Dot Notation'
+  console.log(product.name);
+
+  // change name's value and display it
+  product.name = 'cotton socks';
+  console.log(product.name);
+
+  // add a new property-value pair
+  product.newProperty = true;
+  console.log(product);
+
+  // you can also delete it
+  delete product.newProperty;
+  console.log(product);
+
+  // tells you what type of variable is this
+  console.log(typeof product);
+
+
+
+
+  
+  const product2 = {
+    name2: 'shirt',
+    // bracket notation in an object, the bracket itself is optional so you can delete them 
+    'delivery-time': false,  
+    // this is called nested object; object inside object.
+    rating: {               
+      stars: 4.5,
+      count: 87
+    },
+    // this is called method; function inside an object. same with console.log() in which console is an object and log is a funtion
+    fun: function function1 () { 
+      console.log('function inside object');
+    }
+  };
+
+  // Codes below uses dot, and bracket notation
+  console.log(product2.name2);
+  console.log(product2['name2']);
+
+  // bracket notation is useful if you plan to use special characters (such as '-') to name variables (which won't work with dot notation)
+  product2['delivery-time'] = '1 day';
+  console.log(product2['delivery-time']);
+
+  // To access nested object, simply put a dot and variable name
+  console.log(product2.rating.count);
+
+  // Easy way to call a funtion inside an object
+  product2.fun()
+
+  // if we use typeof to console, it will tell us that this is an object, and if we combine them, the log inside console's objects is a function, in other words, a method.
+  // both console.log and math.random is called built-in objects and have their own purposes
+  console.log(typeof console)
+  console.log(typeof console.log)
+
+
+
+
+  // JSON: JavaScript Object Notation
+  // it behaves like JavaScript Objects with similar syntax but with some limitation: no funtion, and no single quote (all variables are in double quote).
+  // so why use JSON? for compatibilty with other programming languages since JS object can only be used inside javascript.
+  // useful to send data between computers that may use different programming language or stores data from website or video game.
+
+  
+
+  // In this lesson, we'll convert javascript object into JSON
+  // as you will see, that function inside product2 will not be displayed
+  console.log(JSON.stringify(product2));
+  // the result as a whole is a string
+  console.log(typeof JSON.stringify(product2));
+
+  // you can also convert JSON back to javascript object
+  const jsonString = JSON.stringify(product2)
+  console.log(JSON.parse(jsonString));
+
+
+
+  // Local store is useful to save data permanently
+  // the first of the pair is to name a value, the second is the value you want to save
+  // local storage only support string
+  // in this example, you declare localStorage.setItem inside hello function and then call this function outside using localStorage.getItem inside console.log to display the result
+  function hello () {
+    true
+    localStorage.setItem('msg', 'helloooooo');
+  }
+  console.log(localStorage.getItem('msg'));
+
+
+
+
+  // null vs undefined
+  // null is used if you want something to be empty
+
+
+
+  // Auto-Boxing; value can have it's own properties and methods
+  // this javascript feature automatically 'box' an object or value so it can be calculated using built-in method 
+  // this one will show the length of a string
+  console.log('hello'.length);
+  // this one will convert all the string into uppercase
+  console.log('hello'.toUpperCase());
+  // below is a valid syntax
+  console.log(3.0.toExponential());
+  // this one is invalid, since null and undefined is not allowed
+  /* console.log(null.method()); */
+
+
+
+
+  // Objects are references, and not container
+  // every object names do not, on its own contain the property-value pair. it worked as references (or shortcut) that leads to the property-value pair. this is meant to make it more efficient. imagine if object1 in this example contain a large lines of code, object2 will have to copy the entire line from object1, this will waste computer resource.
+  const object1 = {
+    message: 'hello'
+  };
+  const object2 = object1;
+
+  // notice that in this code, you can change the content (value) of a const. this happens because this const object is merely a reference and not the thing itself, which can be changed
+  object1.message = 'Good Job!';
+  console.log(object1);
+  console.log(object2);
+
+  // Objects comparison with boolean is not straightforward. this is because they are compared NOT based on value but based on reference
+  // in this code, the console.log will return false because these objects dont share the same reference, even if they have the same value
+  const object3 = {
+    message: 'Good Job!'
+  };
+  console.log(object1 === object3);
+  // however, this code will return true,
+  console.log(object1 === object2);
+
+
+  // Destructuring in JavaScript is a syntax that allows you to extract values from objects into distinct variables in a concise way. It simplifies the process of accessing multiple properties or elements at once, making your code cleaner and easier to read.
+  const object4 = {message: 'Good Job!', price: 799};
+  // this code
+  /* const message = object4.message; */
+  // equivalent to this code
+  const {message, price} = object4;
+  console.log(message);
+  console.log(price);
+
+  const object5 = {
+    // this is a shorthand property, its value has been defined before
+    message, 
+   
+    /* this is the longer way to code a method
+    method: function function1 () {
+      console.log('method');
+    }*/
+
+    // this is a shorthhand method, a shortcut to write the same result as above
+    method() {
+      console.log('method');
+    }
+  };
+  console.log(object5)
+
+  object5.method();
+
+</script>
+
+</body>
+</html>

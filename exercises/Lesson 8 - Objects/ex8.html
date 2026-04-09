@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  <link rel="stylesheet" href="ex5.css">
+</head>
+
+<style>
+  body {
+    background-color: gray;
+  }
+</style>
+
+<body>
+<!--Lesson 8 Exercises - Objects-->
+<script>
+
+  // 8a. Let's say in the amazon project, we have a basketball products. This product has a name of 'basketball', a price of 2095 cents. Create an object to represent this product and display it in the console.
+  const basketball = {
+    name: 'basketball',
+    price: 2095
+  };
+  console.log(basketball);
+
+
+
+  // 8b. Continuing from 8a, let's say we want to increase the price by 500 cents. Use dot notation to increase the price, and display the updated object in the console.
+  basketball.price += 500; 
+  console.log(basketball.price);
+
+
+
+  // 8c. Using bracket notation, add a property 'delivery-time' to the object with the value '3 days'. Display the updated object in the console.
+  basketball['delivery-time'] = '3 days';
+  console.log(basketball['delivery-time']);
+
+
+
+  // 8d. Create a function 'comparePrice(product1, product2)', which takes 2 products (with 'name' and 'price' properties) and returns the product that is less expensive. Create 2 products and try out the functions.
+  const product1 = {
+    name: 'soap',
+    cost: 400
+  };
+  const product2 = {
+    name: 'soap',
+    cost: 400
+  };
+
+  function comparePrice(product1, product2) {
+    if (product1.cost < product2.cost && product1.name === product1.name) {
+      console.log(`product1 is cheaper by ${product2.cost - product1.cost} cents!`)
+    }
+    else if (product1.cost > product2.cost  && product1.name === product1.name) {
+      console.log(`product2 is cheaper by ${product1.cost - product2.cost} cents!`)
+    } 
+    else if (product1 === product2) {
+      console.log('both product1 and product2 is equal')
+    }
+  };
+
+  comparePrice(product1, product2);
+
+
+
+  // 8e. Create a function 'isSameProduct(product1, product2)', which returns true if 2 products have the same values inside ('name' and 'price'). If not, return false. Create 2 products and try out the function. (Hint: objects are references so you can't compare them directly).
+  const product1x = {
+    name: 'soap',
+    cost: 400
+  };
+  const product2x = {
+    name: 'soap',
+    cost: 400
+  };
+
+  let json1 = JSON.stringify(product1x);
+  let json2 = JSON.stringify(product2x);
+
+  function isSameProduct1(json1, json2) {
+    if (json1 === json2) {
+      console.log('both product1 and product2 are equal')
+    }
+    else {
+      console.log('both product1 and product2 are not equal')
+    }
+  }
+  isSameProduct1(json1, json2)
+
+  // or alternatively:
+  function isSameProduct2(product1x, product2x) {
+    if (product1x === product2x) {
+      console.log('both product1 and product2 are equal')
+    }
+    else {
+      console.log('both product1 and product2 are not equal')
+    }
+  }
+  isSameProduct2(product1x.name, product2x.name)
+
+
+
+  // 8f. Using Google or A.I. tool, search how to convert a string to all lowercase with Javascript ('Good Morning' => 'good morning')
+  console.log('are you okay annie?'.toUpperCase())
+
+
+
+  // 8g. Search how to repeat a string many times ('test' 2 times => 'testtest')
+  console.log('love you baby '.repeat(2))
+
+</script>
+
+
+
+
+  <!--8h. We'll add localStorage to the calculator project. First, make a copy of the project from exercise 7j (see the solution for 7j if needed).
+  - Whenever we update the calculation, save it using .setItem()
+  - When the page first loads, get the calculation using .getItem()
+  - Use a default value of '' (empty string) if a calculation doesn't exist in local storage-->
+  <p>
+  <button onclick="
+    updateCalculationx ('1')
+  ">1</button>
+
+  <button onclick="
+    updateCalculationx ('2')
+  ">2</button>
+
+  <button onclick="
+    updateCalculationx ('3')
+  ">3</button>
+
+  <button onclick="
+    updateCalculationx (' + ')
+  ">+</button>
+</p>
+
+<p>
+  <button onclick="
+    updateCalculationx ('4')
+  ">4</button>
+
+  <button onclick="
+    updateCalculationx ('5')
+  ">5</button>
+
+  <button onclick="
+    updateCalculationx ('6')
+  ">6</button>  
+  
+  <button onclick="
+    updateCalculationx (' - ')
+  ">-</button>
+</p>
+
+<p>
+  <button onclick="
+    updateCalculationx ('7')
+  ">7</button>
+
+  <button onclick="
+    updateCalculationx ('8')
+  ">8</button>
+
+  <button onclick="
+    updateCalculationx ('9')
+  ">9</button>  
+
+  <button onclick="
+    // eval takes a string and runs it as code.
+    calculationx = eval(calculationx);
+    console.log(calculationx);
+    console.log(localStorage.getItem('calcResult'));
+  ">=</button>
+</p>
+
+<p>
+  <button onclick="
+    updateCalculationx ('0')
+  ">0</button>
+
+  <button onclick="
+    updateCalculationx (' / ')
+  ">/</button>
+
+  <button onclick="
+    updateCalculationx (' * ')
+  ">*</button>
+
+  <button onclick="
+    calculationx = '';
+    console.log(calculationx);
+  ">Clear</button>
+</p>
+
+<script>
+  let calculationx = localStorage.getItem('calcResult') || '';
+  function updateCalculationx (number) {
+    calculationx += number;
+    console.log(calculationx);
+    localStorage.setItem('calcResult', calculationx);
+  };
+
+  function savedNumber () {
+    console.log(localStorage.getItem('calcResult'));
+  };
+  savedNumber ()
+</script>
+
+
+
+
+<script>
+/*
+  Challenge Exercises
+
+  8i. We'll improve the coin flip game from exercise 6j to be like the rock paper scissors game.
+  - Copy the code from exercise 6j (see the solution for 6j if needed).
+  - Create 2 buttons to play the game (heads and tails)
+  - When clicking 'heads' play the game with guess = 'heads'.
+  - When clicking 'tails' play the game with guess = 'tails'.
+  - Create a function 'playGame(guess)' to reuse the code.
+
+  8j. Create a score object {wins: 0, losses: 0}, update the score each time after playing, and display the score in the console.
+
+  8k. Use localStorage to save and load the score (hint: you'll need to use JSON.stringify() to convert the score object to a string).
+*/
+
+  function playGame (guess) {
+    let random = Math.random();
+    if (random < 0.5) {
+      console.log('computer choose heads');
+      computer = 'heads';
+    } 
+    else if (random > 0.5) {
+      console.log('computer choose tails');
+      computer = 'tails';
+    }
+
+    if (guess === computer) {
+      console.log('You win!');
+      score.win += 1;
+    } 
+    else {
+      console.log('You lose!');
+      score.lose += 1;
+    }
+
+    localStorage.setItem('scoreData', JSON.stringify(score));
+    console.log(`Your Score: Win: ${score.win}, Lose: ${score.lose}`);
+  }
+
+  let score = JSON.parse (localStorage.getItem('scoreData')) || {
+    win : 0,
+    lose : 0
+  }
+</script>
+
+<p>
+  <button onclick="
+    guess = 'heads';
+    playGame ('heads');
+  ">heads</button>
+
+  <button onclick="
+    guess = 'tails';
+    playGame ('tails');
+  ">tails</button>
+</p>
+
+</body>
+</html>
