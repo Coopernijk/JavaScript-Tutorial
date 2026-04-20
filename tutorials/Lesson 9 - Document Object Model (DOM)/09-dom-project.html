@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  <link rel="stylesheet" href="">
+  <title>DOM Project</title>
+</head>
+
+<style>
+  body {
+    background-color: gray;
+  }
+</style>
+
+<!--
+  In this lesson:
+  - Document Object Model (DOM)
+  - document.querySelector(...) to get element from webpage into javascript
+  - innerHTML to modify HTML inside the element
+  - 3 projects using the DOM
+  - onkeydown=""
+  - more about strings and window object
+-->
+
+
+
+
+
+<!--
+  Youtube Subscribe Button plan
+  - when we click the button
+    - if the text is 'Subscribe' => 'Subscribed'
+    - otherwise, change it back => 'Subscribe'
+
+  Algorithmic implementation
+  - put onclick as an event trigger in the button
+  - declare a constant variable named buttonElement containing queryselector which target this button's class so the result will be saved and then loaded each time the button clicked
+  - call a function that checks if buttonElement's innerHTML is equal to 'Subscribe'. all changes made in this function will be stored in buttonElement's constant
+    - if true, change it to 'Subscribed'
+    - else, 'Subscribe'
+
+-->
+
+<body>
+
+  <p>Youtube Subscribe Button</p>
+  <button onclick="
+    const buttonElement = document.querySelector('.js-subscribe-button')
+
+    if (buttonElement.innerHTML === 'Subscribe') {
+      buttonElement.innerHTML = 'Subscribed'
+    } else {
+      buttonElement.innerHTML = 'Subscribe'
+    }
+    
+  "
+    class="js-subscribe-button">
+    Subscribe
+  </button>
+
+  <!--
+  However the code above will result in a bug if the text 'Subscribe' is written in new line where the button need to be clicked twice to change it.
+
+  to fix it, simply change js object buttonElement's property <<innerHTML>> into <<innerText>> from inside the function's parameter 
+
+  the next problem is that the code is messy because the js function is written inside an HTML element. so to write a cleaner code, we need to separate them
+  -->
+
+  <button onclick="
+    subscribe ()
+  "
+    class="js-subscribe-button1">
+    Subscribe
+  </button>
+
+  <script>
+  function subscribe () {
+    const buttonElement1 = document.querySelector('.js-subscribe-button1')
+    if (buttonElement1.innerText === 'Subscribe') {
+      buttonElement1.innerHTML = 'Subscribed'
+    } else {
+      buttonElement1.innerHTML = 'Subscribe'
+    }
+  }
+  </script>
+
+
+
+
+
+
+
+
+  <!--
+  for this calculator, we will also use dom to update text on the page
+  
+  objectives
+  - get input from textbox
+  - if amount < $40, add $10
+  - display total on the page
+
+  algorithm
+  - for input box:
+    - put a placeholder text
+    - declare a class for DOM to target
+  - for the button:
+    - call a funtion to start execution
+  - for the calculator function:
+    - store DOM's querySelector targeting input box inside a const to save it
+  -->
+  <p>Amazon Shipping Calculator</p>
+  <input type="" placeholder="Cost of order" class="js-cost-input" onkeydown="
+    handleCostKeydown (event)">
+  <button onclick="
+    calculateTotal();
+  ">Calculate</button>
+  <p class="js-total-cost"></p>
+    
+  <script>
+    String(25)
+    // this is called Type Coercion where string will be converted to number if it is operated by operator other than '+'
+    // its not recomended to do so because it can be confused with addition in which it will not return the correct value
+    console.log('25' - 5)
+    console.log('25' + 5)
+
+    // window is the highest object in js, but typing it is not necessary
+    window.console.log(window)
+
+    function handleCostKeydown (event) {
+      if (event.key === 'Enter') {
+        calculateTotal();
+      } 
+    }
+
+    function calculateTotal () {
+      const inputElement = document.querySelector('.js-cost-input');
+      let cost = Number(inputElement.value);
+
+      if (cost < 40) {
+        cost = cost + 10;
+      }
+
+      document.querySelector('.js-total-cost')
+      .innerHTML = `$${cost}`
+    }
+
+  </script>
+
+
+
+
+<!--
+  
+-->
+
+
+</body>
+
+
+</html>

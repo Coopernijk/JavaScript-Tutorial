@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  <link rel="stylesheet" href="">
+  <title>DOM</title>
+</head>
+
+<style>
+  body {
+    background-color: gray;
+  }
+</style>
+
+<body>
+
+<!--
+  In this lesson:
+  - Document Object Model (DOM)
+  - document.querySelector(...) to get element from webpage into javascript
+  - innerHTML to modify HTML inside the element
+  - 3 projects using the DOM
+  - onkeydown=""
+  - more about strings and window object
+-->  
+
+
+
+  <button>Hello</button>
+
+<script>
+  // DOM is a document object that represent/model the webpage. and just like any other objects, it has its own properties and methods
+
+  // Document object is directly linked with HTML page
+  // since DOM is linked to the webpage , we can manipulate content in it.
+  document.title = 'Good Job!';
+
+  // when html element is in this object, the html element will be converted into javascript object
+  console.log(document.body)
+  console.log(typeof document.body)
+
+  // innerHTML properties control and replace all html elements inside its target. you can put text or tag in it
+  // console.log(document.body.innerHTML)
+  // document.body.innerHTML = 'hello';
+  // document.body.innerHTML = '<button>Good Job</button>';
+
+  // document.querySelector() let us get any element from the page and put it inside javascript
+  console.log(document.querySelector('body'))
+
+  // every HTML element has a property .innerHTML, which let us control the HTML inside the element
+  console.log(document.querySelector('button').innerHTML);
+  // this code specifically targets the first button element it found using querySelector, and then use innerHTML property to change ONLY the button's text from 'hello' to 'changed'
+  document.querySelector('button').innerHTML = 'changed';
+
+</script>
+
+  <!--
+  now what if we have a second button? since document.querySelector only target the first button, we need to add a class attribute to add a label
+  -->
+  <button class="js-button">Second button</button>
+
+<script>
+
+  // and then target it with querySelector. and since we targeting a class and not an element, we need to put a dot to a class name (just like CSS!). after this, we can modify it using various functions.
+  console.log(document.querySelector('.js-button'))
+  
+  // since HTML elements can be turned into a javascript object, that means we can contain them in a variable to store value
+  // in this example DOM object is called from a variable and then add a trigger event code that result in a popup
+  const buttonElement = document.querySelector('.js-button');
+  if (true) {
+    buttonElement.addEventListener("click", () => {alert("Button was clicked!")});
+    console.log(buttonElement)
+  };
+</script>
+
+
+
+
+
+
+<!--
+in this example, we change the text inside a button whenever we click it.
+-->
+<p>
+  <button onclick=
+  " jsSubButton ()
+  " class="js-sub-button"
+  >Subscribe</button>
+</p>
+
+<script>
+  
+  function jsSubButton () {
+    const buttonElements = document.querySelector('.js-sub-button')
+    if (buttonElements.innerText === 'Subscribe') {
+      buttonElements.innerHTML = 'Unsubscribe'}
+    else {
+      buttonElements.innerHTML = 'Subscribe'}
+  }
+
+</script>
+
+
+
+
+
+
+<!--
+in this example, we calculate a shipping cost, in which any number that is less than 40 will be added extra $10 cost whenever we click calculate button, or pressing enter in input field.
+-->
+<p>
+  <!-- in here we will use 2 types of event listener whenever 'Enter' key is pressed -->
+  <input type="number" class="js-input-number" placeholder="use addEventListener">
+  <input type="number" class="js-input-number0" placeholder="use onkeydown" onkeydown="keyDown (event)">
+
+  <!-- this button have an alternative executable function -->
+  <button onclick=
+  "calcButtonExecute ()" 
+  class="js-input-button">Calculate</button>
+
+  <p class="js-output-result"></p>
+</p>
+
+<script>
+  const domButton = document.querySelector('.js-input-button')
+  const domInput = document.querySelector('.js-input-number')
+  const domOutput = document.querySelector('.js-output-result')
+  
+  // Main function
+  function calcButtonExecute () {
+    if (domInput.value < 40) {
+      domOutput.innerHTML = `$${domInput.valueAsNumber + 10}`
+    } else {
+      domOutput.innerHTML = `$${domInput.valueAsNumber}`
+    }
+  }
+
+  // alternative function
+  function calcButtonExecute0 () {
+    const domInput0 = document.querySelector('.js-input-number')
+    // Number () function convert string value into a number
+    let cost = Number(domInput0.value)
+    if (cost < 40) {
+      domOutput.innerHTML = `$${domInput0.valueAsNumber + 10}`
+    } else {
+      domOutput.innerHTML = `$${domInput0.valueAsNumber}`
+    }
+  }
+
+  // 'Enter' key function
+  domInput.addEventListener('keydown', function(event){
+    if (event.key === 'Enter') {
+      calcButtonExecute ()
+    }
+  })
+
+  // Alternative to 'Enter' key function
+  const domInput0 = document.querySelector('.js-input-number0')
+  function calcButtonExecute1 () {
+    if (domInput0.value < 40) {
+      domOutput.innerHTML = `$${domInput0.valueAsNumber + 10}`
+    } else {
+      domOutput.innerHTML = `$${domInput0.valueAsNumber}`
+    }
+  }
+  function keyDown (event) {
+    if (event.key === 'Enter') {
+      calcButtonExecute1 ()
+    }
+  }
+</script>
+
+
+
+
+
+
+<!-- some more details about javascript -->
+<script>
+  // in the previous example, we learn how to convert string into number using <number(targetedDOMObject.value)>. however, we can also convert the number back into string value
+  const stringNumber = '17'
+  console.log(typeof Number(stringNumber))
+
+  const trueNumber = Number(stringNumber)
+  console.log(typeof String(stringNumber))
+
+  // it is possible to  perform mathematical operation with string, but it's only valid with substarction, division, and multiplication, this is called Type Coercion. doing addition with string will only combine the 2 numbers into 1 sentence. its also NOT recommended to do math with strings
+  console.log('12' - 6)
+  console.log('12' / 6)
+  console.log('12' * 6)
+  console.log('12' + 6)
+
+  // .window object is higher in the object chain as it control the browser's window, right above .document, .console, popup, etc. however in javascript, it is not necessary to type it since already setup as default
+  window.console.log(window.alert)
+
+</script>
+
+
+</body>
+</html>
