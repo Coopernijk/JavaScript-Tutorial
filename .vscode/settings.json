@@ -1,0 +1,5 @@
+{
+    "github.copilot.chat.cloudAgent.enabled": false,
+    "github.copilot.chat.backgroundAgent.enabled": false,
+    "js/ts.suggest.includeAutomaticOptionalChainCompletions": false
+}

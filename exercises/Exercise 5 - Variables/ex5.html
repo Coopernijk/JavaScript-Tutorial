@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  <link rel="stylesheet" href="ex5.css">
+</head>
+
+<body>
+
+  <div class="exercises-box">
+    <div class="flexheader">
+      <div class="texthead">
+        <div>Lesson 5 - Variables</div>
+        <div>Note: to do these exercises, create an HTML file (like 5a.html, 5b.html, ...)</div>
+      </div>
+    </div>
+    
+    <div class="gridview">
+      <div class="gridbackground">
+        <div class="flexdescmain">
+          <div class="flexdescsub">
+            <div class="flexnum">5a.</div>
+            <div class="flextext">
+              Create a &lt;script&gt; element. Inside the &lt;script&gt;, create a variable called 'name', and save your name in this variable (as a string).
+            </div>
+          </div>
+          <div class="flexdescsub">
+            <div class="flexnum">5b.</div>
+            <div class="flextext">
+              Continuing from 5a, display the message 'My name is: ${name}' in the console (insert the 'name' variable created in 5a into this message).
+            </div>
+          </div>
+          <div class="flexdescsub">
+            <div class="flexnum">5c.</div>
+            <div class="flextext">
+              At a restaurant, you order 1 coffee ($5), 2 bagels ($3 each) and 1 soup ($9). Calculate the cost and save it in a variable called 'cost'.
+            </div>
+          </div>
+          <div class="flexdescsub">
+            <div class="flexnum">5d.</div>
+            <div class="flextext">
+              Continuing from 5c, display 'Cost of food: $${cost}' in the console.
+            </div>
+          </div>
+          <div class="flexdescsub">
+            <div class="flexnum">5e.</div>
+            <div class="flextext">
+              Let's say the restaurant charges 10% tax. Using the 'cost' variable from 5c, calculate the tax (hint: multiply by 0.1), and save the result in a variable.
+            </div>
+          </div>
+          <div class="flexdescsub">
+            <div class="flexnum">5f.</div>
+            <div class="flextext">
+              Continuing from 5e, display 'Tax (10%): $${tax}' in the console.
+            </div>
+          </div>
+          <div class="flexdescsub">
+            <div class="flexnum">5g.</div>
+            <div class="flextext">
+              Continuing from 5f, calculate the total (cost + tax), save it in a variable called 'totalCost', and display the message 'Total cost: $${totalCost}' in the console.
+            </div>
+          </div>
+          <div class="flexdescsub">
+            <div class="flexnum">5h.</div>
+            <div class="flextext">
+              In the Cart Quantity project, add 2 more buttons '+4' and '+5', which increase the quantity by 4 and 5 when you click them. Try using +=
+            </div>
+          </div>
+          <div class="flexdescsub">
+            <div class="flexnum">5i.</div>
+            <div class="flextext">
+              In the Cart Quantity project, add a button 'Remove from cart', which decreases the cart quantity by 1.
+            </div>
+          </div>
+          <div class="flexdescsub">
+            <div class="flexnum">5j.</div>
+            <div class="flextext">
+              Add 2 buttons '-2' and '-3', which decrease the quantity by 2 and 3.
+            </div>
+          </div>
+          <div class="flexdescsub">
+            <div class="flexnum">5k.</div>
+            <div class="flextext">
+              Use the shortcuts -- and -= in 5i and 5j.
+            </div>
+          </div>
+        </div>
+
+        <div class="gridbackground">
+            
+            <div class="spec">
+              <div class="flextextx boldredunderlined">Challenge Exercises</div>
+              <div class="flextextx">We'll build a calculator (don't worry, we'll do it step by step).</div>
+              <div class="flexdescsub">
+                <div class="flexnumx">1.</div>
+                <div class="flextextx">
+                  Go to 'supersimple.dev/projects/calculator' in your browser.
+                </div>
+              </div>
+              <div class="flexdescsub">
+                <div class="flexnumx">2.</div>
+                <div class="flextextx">
+                  Open the Console and click the calculator buttons to see how it works.
+                </div>
+              </div>
+              <div class="flextextx">
+                Setup: create a new file calculator.html for this project.
+              </div>
+            </div>
+
+          
+          <div class="flexdescmain">
+            <div class="flexdescsub">
+              <div class="flexnum">5l.</div>
+              <div class="flextext">Add the HTML structure (&lt;DOCTYPE html&gt;, &lt;html&gt;, &lt;head&gt;, &lt;body&gt;). Add a &lt;title&gt; with the text 'Calculator'</div>
+            </div>
+            <div class="flexdescsub">
+              <div class="flexnum">5m.</div>
+              <div class="flextext">
+                Create these 5 buttons:
+              </div>
+            </div>
+            <div class="flexdescsub">
+              <div class="flexnum">5n.</div>
+              <div class="flextext">
+                Create a &lt;script&gt;, create a variable called 'calculation', and save an empty string inside: let calculation ="; (This variable will strore the calculation like '1 + 2' or '11 + 2 + 2')
+              </div>
+            </div>
+            <div class="flexdescsub">
+              <div class="flexnum">5o.</div>
+              <div class="flextext">
+                When we click the '1' button:
+              </div>
+            </div>
+            <div class="flexdescsub">
+              <div class="flexdot">• </div>
+              <div class="flextext">
+                Add the string '1' to the calculation variable: calculation += '1';
+              </div>
+            </div>
+            <div class="flexdescsub">
+              <div class="flexdot">• </div>
+              <div class="flextext">
+                Display the calculation in the console: console.log(calculation);
+              </div>
+            </div>
+            <div class="flexdescsub">
+              <div class="flexnum">5p.</div>
+              <div class="flextext">
+                Do the same for th '2', '3', and '+' buttons (add ' + ' instead of '+').
+              </div>
+            </div>
+            <div class="flexdescsub">
+              <div class="flexnum">5q.</div>
+              <div class="flextext">
+                When we click the '=' button, use the code: eval(calculation); (eval(...) converts the calculation string into actual math)
+              </div>
+            </div>
+            <div class="flexdescsub">
+              <div class="flexdot">• </div>
+              <div class="flextext">
+                Save the result back in 'calculation': calculation = eval(calculation);
+              </div>
+            </div>
+            <div class="flexdescsub">
+              <div class="flexdot">• </div>
+              <div class="flextext">
+                Display the result in the console: console.log(calculation);
+              </div>
+            </div>
+            <div class="flexdescsub">
+              <div class="flexnum">5r.</div>
+              <div class="flextext">
+                Create the rest of the buttons in the calculator. To create multiple rows of buttons, put the buttons inside &lt;p&gt; elements like this:
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="exercise0"> <!--5h, 5i, 5j, 5k-->
+
+        <button onclick="
+          console.log (`Cart Quantity: ${cartQuantity}`);
+          ">Show Quantity
+        </button>
+
+        <button onclick="
+          //cartQuantity = cartQuantity + 1;
+          //cartQuantity += 1;
+          cartQuantity++;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">Add to Cart
+        </button>
+
+        <button onclick="
+          //cartQuantity = cartQuantity + 2;
+          cartQuantity += 2;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">+2
+        </button>
+
+        <button onclick="
+          cartQuantity = cartQuantity + 3;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">+3
+        </button>
+
+        <button onclick="
+          cartQuantity = cartQuantity + 4;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">+4
+        </button>
+
+        <button onclick="
+          cartQuantity = cartQuantity + 5;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">+5
+        </button>
+
+        <button onclick="
+          cartQuantity -= 2;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">-2
+        </button>
+
+        <button onclick="
+          cartQuantity -= 3;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">-3
+        </button>
+
+        <button onclick="
+          cartQuantity --;
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">Remove from Cart
+        </button>
+
+        <button onclick="
+          cartQuantity = 0;
+          console.log ('Cart was reset');
+          console.log (`Cart Quantity: ${cartQuantity}`);
+        ">Reset Cart
+        </button>
+
+      </div>
+      
+    </div>
+  </div>
+
+  
+<script>
+  let name = "Coopernjk";                   //5a.
+  console.log (`My name is: ${name}`);      //5b.
+  let cost = 5 + ( 2 * 3 ) + 9;             //5c.
+  console.log (`Cost of food: $${cost}`);   //5d.
+  let tax = Math.round( cost * 0.1 );       //5e.
+  console.log (`Tax (10%): $${tax}`);       //5f.
+
+  let totalCost = cost + tax;               //5g.
+  console.log (`Total cost: $${totalCost}`)
+
+  let cartQuantity = 0;
+</script>
+</body>
+</html>

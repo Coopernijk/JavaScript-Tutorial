@@ -1,0 +1,111 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+
+
+
+
+
+.exercise10-ab {
+  margin-top: 50px;
+  font-family: Arial;  
+}
+.ex10-addcart {
+  background-color: rgb(255, 216, 20);
+  border: none;
+  padding: 5px 35px;
+  border-radius: 15px;
+}
+.ex10-request {
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.ex10-schedule {
+  background-color: rgb(230, 230, 230);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+.x10d-toggle {
+  padding: 8px 20px;
+  border: none;
+  color: black;
+  background-color: rgb(230, 230, 230);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.x10d-toggled {
+  background-color: black;
+  color: white;
+}
+
+
+
+
+
+
+.cost-input {
+  font-size: 15px;
+  padding: 10px;
+}
+.calculate-button {
+  background-color: green;
+  color: white;
+  border: none;
+  font-size: 15px;
+  padding: 12px 15px;
+  cursor: pointer;
+}
+
+
+
+
+
+.calculatorContainer {
+  background-color: rgba(0, 0, 0, 0.842);
+  padding: 30px;
+}
+.calculatorCSS {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+.js-calc {
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 30px;
+  font-family: Arial;
+}
+.calcEqual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.calcCSSbutton {
+  color: white;
+  background-color: rgb(41, 41, 41);
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: none;
+}
+.calcCSSOrange {
+  background-color: orange;
+}

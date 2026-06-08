@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  <link rel="stylesheet" href="ex5.css">
+</head>
+
+
+
+
+
+
+<style>
+  body {
+    background-color: gray;
+  }
+</style>
+
+<body>
+<!--
+Lesson 7 Exercise - Functions
+-->
+
+<script>
+/*
+7a. Create a function called 'greet' that display the message 'Hello!' in the console. Call / run this function a few times using: greet();
+*/
+
+function greet0 () {
+  console.log('Hello!');
+}
+greet0()
+
+
+/*
+7b. Continuing from 7a, add a parameter called 'name' to the 'greet' function and display the message: 'Hello ${name}!' Call the function a few times with different names: greet('Simon');
+*/
+
+function greet1 (name) {
+  console.log(`Hello ${name}!`);
+}
+greet1('Coopernijk');
+
+
+/*
+7c. Try calling greet() without a name (it will display 'Hello Undefined!'). Modify the function so that if 'name' is undefined, it will display 'Hi there!' instead.
+(Hint: use an IF-statement. since undefined is a falsy value, you can use: if (!name) {...} to check if 'name' is undefined).
+*/
+
+function greet2 (name2) {
+  if (!name2) {
+    console.log(`Hi there!`);
+  } else {
+    console.log(`Hello ${name2}`);
+  }
+}
+greet2(); // or you can enter a name.
+
+
+
+/*
+7d. Create a function 'convertToFahrenheit(celcius)' that takes a number in degrees Celcius and returns a number in degrees Fahrenheit.
+- Formula: Fahrenheit = (Celcius * 9 / 5) + 32
+- converToFahrenheit(25) => 77
+*/
+
+function convertToFahrenheit(celcius) {
+  console.log(`${(celcius * 9 / 5) + 32} degrees Fahrenheit`);
+}
+convertToFahrenheit(25);
+
+
+
+/*
+7e. Create a function 'convertToCelcius(fahrenheit)' that takes a number in degrees Fahrenheit and returns a number in degrees Celcius.
+- Formula: Celcius = (Fahrenheit - 32) * 5 / 9
+- convertToCelcius(86) => 30
+*/
+
+function convertToCelcius(fahrenheit) {
+  console.log(`${(fahrenheit - 32) * 5 / 9} degrees celcius`);
+}
+convertToCelcius(86);
+console.log()
+
+
+
+/*
+7f. Create a function 'convertTemperature(degrees, unit)' that takes a number and a unit ('C' or 'F'), and converts it into the other unit.
+- convertTemperature(25, 'C') => '77F'
+- convertTemperature(86, 'F') => '30C'
+*/
+
+function convertTemperature(degrees, unit) { 
+  if (unit === 'celcius') {
+    console.log(`It's ${(degrees * 9 / 5) + 32} degrees Fahrenheit, bro!`);
+  }
+  else if (unit === 'fahrenheit') {
+    console.log(`It's ${(degrees - 32) * 5 / 9} degrees celcius, bro!`);
+  }
+  return('')
+  
+}
+convertTemperature(25, 'celcius');
+convertTemperature(86, 'fahrenheit');
+console.log()
+
+
+
+/*
+7g. Create a function convertLength(length, from, to) that takes a number and a unit ('km' or 'miles') and converts the length to another unit ('km' or 'miles'). Note: 1 mile = 1.6km (approximately).
+- convertLength(50, 'miles', 'km') => '80 km'
+- convertLength(32, 'km', 'miles') => '20 miles'
+- convertLength(50, 'km', 'km') => '50 km' 
+*/
+
+function convertLength1(length1, unitA1, unitB1) {
+  const A1isMILES = unitA1 === 'miles';
+  const A1isKM = unitA1 === 'km';
+  const B1isMILES = unitB1 === 'miles';
+  const B1isKM = unitB1 === 'km';
+
+  if ((A1isMILES) && (B1isKM)) {
+    console.log(`${length1} ${unitA1} = ${length1 * 1.6} ${unitB1}`);
+  }
+  else if ((A1isKM) && (B1isMILES)) {
+    console.log(`${length1} ${unitA1} = ${length1 / 1.6} ${unitB1}`);
+  }
+  else if (((A1isKM) && (B1isKM)) || ((A1isMILES) && (B1isMILES))) {
+    console.log(`${length1} ${unitA1} = ${length1 * 1} ${unitB1}`);
+  }
+}
+convertLength1(50, 'miles', 'km');
+convertLength1(32, 'km', 'miles');
+convertLength1(50, 'km', 'km');
+convertLength1(50, 'miles', 'miles');
+console.log()
+
+
+
+/*
+7h. Update convertLength to support converting between km, miles, and also feet. Note: 1 mile = 5280 ft, 1 km = 3281 ft (approximately).
+- convertLength(5, 'miles', 'km') => '8 km'
+- convertLength(5, 'miles', 'ft') => '26400 ft'
+- convertLength(5, 'km', 'ft') => '16405 ft'
+
+7i. Update convertLength so that if you give it an invalid unit, it will return `Invalid unit: ${unit}`.
+- convertLength(5, 'lbs', 'lbs') => 'Invalid unit: lbs'
+*/
+
+function convertLength2(length1, unitA1, unitB1) {
+  const A1isMILES = unitA1 === 'miles';
+  const A1isKM = unitA1 === 'km';
+  const A1isFEET = unitA1 === 'feet';
+
+  const B1isMILES = unitB1 === 'miles';
+  const B1isKM = unitB1 === 'km';
+  const B1isFEET = unitB1 === 'feet';
+
+  if ((A1isMILES) && (B1isKM)) {
+    console.log(`${length1} ${unitA1} = ${length1 * 1.6} ${unitB1}`);
+  }
+  else if ((A1isMILES) && (B1isFEET)) {
+    console.log(`${length1} ${unitA1} = ${length1 * 5280} ${unitB1}`);
+  }
+  else if ((A1isKM) && (B1isFEET)) {
+    console.log(`${length1} ${unitA1} = ${length1 * 3281} ${unitB1}`);
+  }
+  else if ((A1isKM) && (B1isMILES)) {
+    console.log(`${length1} ${unitA1} = ${length1 / 1.6} ${unitB1}`);
+  }
+  else if ((A1isFEET) && (B1isMILES)) {
+    console.log(`${length1} ${unitA1} = ${length1 / 5280} ${unitB1}`);
+  }
+  else if ((A1isFEET) && (B1isKM)) {
+    console.log(`${length1} ${unitA1} = ${length1 / 3281} ${unitB1}`);
+  }
+  else if (((A1isKM) && (B1isKM)) || ((A1isMILES) && (B1isMILES)) || ((A1isFEET) && (A1isFEET))) {
+    console.log(`${length1} ${unitA1} = ${length1 * 1} ${unitB1}`);
+  }
+  else {
+    console.log(`invalid unit: ${unitA1} to ${unitB1}`);
+  }
+}
+convertLength2(2, 'miles', 'km');
+convertLength2(2, 'miles', 'feet');
+convertLength2(32, 'km', 'feet');
+convertLength2(32, 'km', 'miles');
+convertLength2(5000, 'feet', 'miles');
+convertLength2(5000, 'feet', 'km');
+
+convertLength2(50, 'km', 'km');
+convertLength2(50, 'miles', 'miles');
+convertLength2(1000, 'feet', 'feet');
+
+convertLength2(2, 'lbs', 'lbs');
+
+</script>
+
+
+
+<!--
+Challenge Exercise
+
+7j. Create a copy of the Calculator project from exercise 5r (if you didn't do 5r, copy the code for 5r from the solutions).
+- Notice there's a lot of duplicated code in the buttons.
+- Create a function 'updateCalculation' and reuse the code.
+-->
+
+<p>
+  <button onclick="
+    updateCalculationx (calculationx += '1')
+  ">1</button>
+
+  <button onclick="
+    updateCalculationx (calculationx += '2')
+  ">2</button>
+
+  <button onclick="
+    updateCalculationx (calculationx += '3')
+  ">3</button>
+</p>
+
+<p>
+  <button onclick="
+    updateCalculationx (calculationx += '4')
+  ">4</button>
+
+  <button onclick="
+    updateCalculationx (calculationx += '5')
+  ">5</button>
+
+  <button onclick="
+    updateCalculationx (calculationx += '6')
+  ">6</button>  
+</p>
+
+<p>
+  <button onclick="
+    updateCalculationx (calculationx += '+')
+  ">+</button>
+
+  <button onclick="
+    updateCalculationx (calculationx += '=')
+  ">=</button>
+</p>
+
+<script>
+
+  let calculationx = "";
+  function updateCalculationx (calculationx) {
+    console.log(calculationx);
+  }
+</script>
+
+
+
+
+
+
+ <!--
+
+  7k. Create a copy of the Cart Quantity project from exercise 6l.
+  - Create a function 'updateCartQuantity' and reuse the code.
+
+  7l. Modify 'updateCartQuantity' so that if the quantity is invalid, alert(); and then return; (this is called an early return). an early return make our code cleaner because we can remove the 'else-if' / 'else'.
+
+ -->
+  
+<button onclick="
+  console.log(calculation);
+  ">Show Quantity
+</button>
+
+<button onclick="
+  updateCalculation (calculation += 1);
+">Add to Cart
+</button>
+
+<button onclick="
+  updateCalculation (calculation += 2);
+">+2
+</button>
+
+<button onclick="
+  updateCalculation (calculation += 3);
+">+3
+</button>
+
+<button onclick="
+  updateCalculation (calculation += 4);
+">+4
+</button>
+
+<button onclick="
+  updateCalculation (calculation += 5);
+">+5
+</button>
+
+<button onclick="
+  updateCalculation (calculation -- );
+">Remove from Cart
+</button>
+
+<button onclick="
+  updateCalculation (calculation -= 2);
+">-2
+</button>
+
+<button onclick="
+  updateCalculation (calculation -= 3);
+">-3
+</button>
+
+
+<button onclick="
+  updateCalculation (calculation = 0);
+">Reset Cart
+</button>
+
+
+
+<script>
+
+  let calculation = 0;
+  function updateCalculation (calculation) {
+    
+    if (calculation > 10) {
+      alert ('The cart is full')
+      return; // add this code so the button stops updating
+    }
+    console.log(calculation);
+  }
+
+</script>
+/**/
+
+
+</body>
+</html>

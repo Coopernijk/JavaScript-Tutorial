@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  <link rel="stylesheet" href="">
+  <title>Arrays and Loops</title>
+</head>
+
+<body>
+
+
+
+<script>
+  /* An Array is a type of values that contains a list of values */
+  const myArray = [10, 20, 30]; 
+  console.log(myArray)
+
+  /* Display selected value from an array using '[]' brackets */
+  console.log(myArray[0])
+
+  /* change an object in array into another number */
+  myArray[0] = 99
+  console.log(myArray[0])
+
+  /* Arrays can accept different types of values */
+  const heY = [1, 'hello', true, {name: 'socks'}, [1, 2]]
+
+  /* checking an array in console log will result in an object */
+  console.log(typeof [1, 2])
+
+  /* you can use this code instead to check an array */
+  console.log(Array.isArray([1, 2]))
+
+  /* since it also an object, it have its own methods and properties */
+  console.log(myArray.length)
+
+  /* adds a method to add a number at the end of an array */
+  myArray.push(100)
+  console.log(myArray.length)
+
+  /* removes number of an array (startValue, endValue) */
+  myArray.splice(0,1)
+  console.log(myArray)
+
+
+
+
+  /* Loop */
+  /* 'while' keyword starts the loop, the brackets signals logical condition for loop to operate and will stop if it return false. inside, curly brackets run codes that can control the loop's conditional. either to continue or halt. */
+  let i = 1;          // loop variable
+  while (i <= 5) {    // loop condition
+    console.log(i)    // loop body
+    i = i + 1;
+  }                   // this code will run 5 iteration (total number of work per loop)
+
+  /* For Loop */
+  /* simmilar to a simple Loop, For loop explicitly requires coder to state initial statement, condition in which if true will continue until its false (limit), and iteration, or method of repetition for the code body to run. */
+  for (let x = '1'; x <= 5; x++) {
+    console.log(x)
+  }
+  for (let i = 0, k = 0; (k++, i < 5); i++, k++) {
+    console.log(i, k);
+  }
+
+
+
+
+  /* Array Loop */
+  const todoList = [
+    'make dinner',
+    'wash dishes',
+    'watch youtube'
+  ]
+
+  for (let index0 = 0; index0 <= todoList.length - 1; index0++) {
+    console.log(todoList[index0])
+  }
+
+
+
+
+  /* Accumulator Pattern */
+  /* create a variable to store the result, and loop through the array and update the result */
+  const numArray = [1, 1, 3];
+  let total = 0;
+
+  for (let index1 = 0; index1 < numArray.length; index1++) {
+    const num = numArray[index1];
+    total += num;
+  }
+  console.log(total)
+
+
+
+  const numDoubled = [];
+
+  for (index1 = 0; index1 < numArray.length; index1++) {
+    const num = numArray[index1];
+    numDoubled.push(num * 2);
+  };
+  console.log(numDoubled);
+</script>
+</body>
+</html>

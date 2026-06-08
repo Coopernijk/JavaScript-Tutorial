@@ -1,0 +1,68 @@
+
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.exercises-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(84, 84, 84);
+  margin: 20px 25vw;
+  min-width: 400px;
+}
+.texthead {
+  width: 500px;
+}
+.texthead {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 12px;
+}
+.gridview {
+  margin: 10px;
+}
+.gridbackground {
+  background-color: rgb(185, 185, 185);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+}
+.flexdescmain {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.flexdescsub {
+  display: flex;
+}
+.flexdot {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  font-size: 12px;
+}
+.flextext,
+.flexnum {
+  margin: 5px;
+  font-size: 12px;
+}
+@media (max-width: 610px) {
+  .gridbackground {
+    width: 300px;
+  }
+}
+.boldredunderlined {
+  color: red;
+  text-decoration: underline;
+  font-weight: 800;
+}

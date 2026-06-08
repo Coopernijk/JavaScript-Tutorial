@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  <link rel="stylesheet" href="ex10.css">
+</head>
+
+<style>
+  body {
+    background-color: gray;
+  }
+</style>
+
+<body>
+
+
+<!--
+  Lesson 10 Exercises - HTML, CSS, and JavaScript Together
+  
+  Create the folllowing buttpns using HTML and CSS. the styles don't have to be exact (just use your best judgement).
+  10a. Amazon button
+  10b. Uber buttons
+-->
+<div class="exercise10-ab">
+  <button class="ex10-addcart">Add to Cart</button>
+  <button class="ex10-request">Request now</button>
+  <button class="ex10-schedule">Schedule for later</button>
+</div>
+
+
+
+
+
+
+<!--
+  10c. ClassList has another method, classList.contains('class-name'), which checks if an element has a class.
+  - Create a button: <button class="js-button">Test</button>
+  - Use document.querySelector() and classList.contains('js-button') to check if this button has the class 'js-button'.
+  - Console.log() the result.
+-->
+<div>
+  <button class="js-button test-lol">Test</button>
+</div>
+
+<script>
+  let jsButton = document.querySelector('.js-button')
+  console.log(jsButton)
+  console.log(jsButton.classList.contains('test-lol'))
+</script>
+
+
+
+
+
+
+<!--
+  10d. Create the button on the right. When clicking this button, it should turn ON/OFF. Hints:
+  - When clicking the button, add or remove the class 'is-toggled', and use it to change the styling.
+  - use of (classList.contains('is-toggled')) to decide whether to add or remmove the 'is-toggled' class.
+
+  10e. Continuing from 10d, create 3 buttons that can be turned ON / OFF.
+
+  10f. Continuing from 10e, use a function to reuse the code, and separate each language into its own file (if you didn't do this already).
+-->
+<div>
+  <button class="x10d-toggle x10d-button1" onclick="hobbyToggle('.x10d-button1')">Gaming</button>
+  <button class="x10d-toggle x10d-button2" onclick="hobbyToggle('.x10d-button2')">Music</button>
+  <button class="x10d-toggle x10d-button3" onclick="hobbyToggle('.x10d-button3')">Tech</button>
+</div>
+
+<script>
+  function hobbyToggle(element) {
+    let hobby =  document.querySelector(element);
+
+    if (hobby.classList.contains('x10d-toggled') === false) {
+      hobby.classList.add('x10d-toggled')
+    } else {
+      hobby.classList.remove('x10d-toggled')
+    }
+  }
+</script>
+
+
+
+
+
+
+<!--
+  Challenge Exercises
+
+  10g. Modify 10f so that only 1 button can be on at a time.
+-->
+<div>
+  <button class="x10d-toggle x10g-btn1" onclick="hobbyToggle1('.x10g-btn1', '.x10g-btn2', '.x10g-btn3')">Gaming</button>
+  <button class="x10d-toggle x10g-btn2" onclick="hobbyToggle1('.x10g-btn2', '.x10g-btn1', '.x10g-btn3')">Music</button>
+  <button class="x10d-toggle x10g-btn3" onclick="hobbyToggle1('.x10g-btn3', '.x10g-btn2', '.x10g-btn1')">Tech</button>
+</div>
+
+<script>
+  function hobbyToggle1(element1, element2, element3) {
+    let hobby1 =  document.querySelector(element1);
+    let hobby2 =  document.querySelector(element2);
+    let hobby3 =  document.querySelector(element3);
+    
+
+      if       (hobby1.classList.contains('x10d-toggled') === false) {
+      console.log(element1)
+      hobby1.classList.add('x10d-toggled');
+      hobby2.classList.remove('x10d-toggled');
+      hobby3.classList.remove('x10d-toggled');
+    } else if (hobby2.classList.contains('x10d-toggled') === false) {
+      console.log(element2)
+      hobby2.classList.add('x10d-toggled');
+      hobby3.classList.remove('x10d-toggled');
+      hobby1.classList.remove('x10d-toggled');
+    }else if (hobby3.classList.contains('x10d-toggled') === false) {
+      console.log(element3)
+      hobby3.classList.add('x10d-toggled');
+      hobby2.classList.remove('x10d-toggled');
+      hobby1.classList.remove('x10d-toggled');
+    }
+  }
+</script> 
+
+<!--Alternative answer-->
+<div>
+  <button class="x10d-toggle x10g-bttn1" onclick="turnItOn('.x10g-bttn1')">Gaming</button>
+  <button class="x10d-toggle x10g-bttn2" onclick="turnItOn('.x10g-bttn2')">Music</button>
+  <button class="x10d-toggle x10g-bttn3" onclick="turnItOn('.x10g-bttn3')">Tech</button>
+</div>
+
+<script>
+  function turnItOn (param) {
+    const buttonOn = document.querySelector(param);
+    if (!buttonOn.classList.contains('x10d-toggled')) {
+      turnOffOtherButtons ();
+      buttonOn.classList.add('x10d-toggled');
+    } else {
+      buttonOn.classList.remove('x10d-toggled');
+    }
+  }
+  function turnOffOtherButtons () {
+    const prevButton = document.querySelector('.x10d-toggled');
+    if (prevButton) {
+      prevButton.classList.remove('x10d-toggled');
+    }
+  }
+</script>
+
+
+
+
+
+
+<!--
+  10h. Create a file 10h.html and copy the code from 10-dom-projects.html. In the Amazon Shipping Calculator, if we type a number less than 0, display a red error message bellow the text box:
+-->
+<div>
+  <p>Amazon Shipping Calculator</p>
+  <input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="
+    handleCostKeydown(event);
+  ">
+  <button onclick="
+    calculateTotal();
+  " class="calculate-button">Calculate</button>
+  <p class="js-total-cost"></p>
+</div>
+
+<script>
+  String(25)
+  console.log('25' - 5);
+  console.log('25' + 5);
+
+  window.document
+  window.console.log('window');
+  window.alert
+
+  function handleCostKeydown(event) {
+    if (event.key === 'Enter') {
+      calculateTotal();
+    }
+  }
+
+  function calculateTotal() {
+    const inputElement = document.querySelector('.js-cost-input');
+    let cost = Number(inputElement.value);
+
+    if (cost < 40 && cost > 0) {
+      cost = cost + 10;
+      document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+    } else if (cost <= 0) {
+      document.querySelector('.js-total-cost').innerHTML = `Error: cost cannot be less or equal to $0`;
+    } else if (cost >= 40) {
+      cost = cost;
+      document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+    }
+  }
+</script>
+
+
+
+
+
+
+<!--
+  10i. We'll style the calculator project using CSS.
+  - Make a copy of exercise 9j.
+  - In your browser, go to: supersimple.dev/projects/calculator-final this is the final design for the project.
+  - Using CSS, style the calculator project to look like the final design on the right.
+
+  10j. Continuing from exercise 10i, separate each language into its own file (if you didn't do this already).
+-->
+<div class="calculatorContainer">
+  <div class="calculatorCSS">
+    <p>Calculator</p>
+
+    <div class="calcEqual">
+      <output class="js-calc-input js-calc">_</output>
+      <p> = </p>
+      <output class="js-calc-output js-calc">_</output>
+    </div>
+
+    <p>
+      <button class="calcCSSbutton" onclick="
+        updateCalculation('1');
+      ">1</button>
+
+      <button class="calcCSSbutton" onclick="
+        updateCalculation('2');
+      ">2</button>
+
+      <button class="calcCSSbutton" onclick="
+        updateCalculation('3');
+      ">3</button>
+
+      <button class="calcCSSbutton calcCSSOrange" onclick="
+        updateCalculation(' + ');
+      ">+</button>
+    </p>
+
+    <p>
+      <button class="calcCSSbutton" onclick="
+        updateCalculation('4');
+      ">4</button>
+
+      <button class="calcCSSbutton" onclick="
+        updateCalculation('5');
+      ">5</button>
+
+      <button class="calcCSSbutton" onclick="
+        updateCalculation('6');
+      ">6</button>
+
+      <button class="calcCSSbutton calcCSSOrange" onclick="
+        updateCalculation(' - ');
+      ">-</button>
+    </p>
+
+    <p>
+      <button class="calcCSSbutton" onclick="
+        updateCalculation('7');
+      ">7</button>
+
+      <button class="calcCSSbutton" onclick="
+        updateCalculation('8');
+      ">8</button>
+
+      <button class="calcCSSbutton" onclick="
+        updateCalculation('9');
+      ">9</button>
+
+      <button class="calcCSSbutton calcCSSOrange" onclick="
+        updateCalculation(' * ');
+      ">*</button>
+    </p>
+
+    <p>
+      <button class="calcCSSbutton" onclick="
+        updateCalculation('0');
+      ">0</button>
+
+      <button class="calcCSSbutton" onclick="
+        updateCalculation('.');
+      ">.</button>
+
+      <button class="calcCSSbutton" onclick="
+        calcEval()
+        console.log(calculation);
+        saveCalculation()
+      ">=</button>
+
+      <button class="calcCSSbutton calcCSSOrange" onclick="
+        updateCalculation(' / ');
+      ">/</button>
+    </p>
+
+    <p>
+      <button class="calcCSSbutton" onclick="
+        calculation = '';
+        calcOutput.value = '';
+        calcInput.value = calculation;
+        console.log(calculation);
+        saveCalculation()
+        console.log(saveCalculation())
+      ">Clear</button>
+    </p>
+  </div>
+</div>
+
+  <script>
+    let calculation = localStorage.getItem('calculation') || '';
+    let calcSaves = localStorage.setItem('calculation', calculation);
+
+    let calcInput = document.querySelector('.js-calc-input');
+    let calcOutput = document.querySelector('.js-calc-output');
+
+    function updateCalculation(value) {
+      calculation += value;
+      console.log(calculation);
+      localStorage.setItem('calculation', calculation);
+      calcInput.value = calculation
+    }
+
+    function calcEval () {
+      calculation = eval(calculation);
+      calcOutput.innerHTML = calculation;
+    }
+
+    function saveCalculation() {
+      calcSaves
+    }
+  </script>
+</body>
+</html>
