@@ -1,5 +1,12 @@
 {
     "github.copilot.chat.cloudAgent.enabled": false,
     "github.copilot.chat.backgroundAgent.enabled": false,
-    "js/ts.suggest.includeAutomaticOptionalChainCompletions": false
+    "js/ts.suggest.includeAutomaticOptionalChainCompletions": false,
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+    "liveServer.settings.CustomBrowser": "firefox",
+    "liveServer.settings.root": "/",
+    "git.optimisticUpdate": false,
+    "telemetry.feedback.enabled": false,
+    "telemetry.editStats.enabled": false,
+    "editor.wordWrap": "on"
 }
