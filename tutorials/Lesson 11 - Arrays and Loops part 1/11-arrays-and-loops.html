@@ -4,11 +4,22 @@
 <head>
   <meta name="viewport" content="height=device-height, initial-scale=1">
   <link rel="stylesheet" href="">
-  <title>Arrays and Loops</title>
+  <title>Arrays and Loops</title
 </head>
 
 <body>
+<!--
 
+  in this lesson:
+  1. Array = list of values
+  2. Loops (while loop, for loop)
+  3. Accumulator Pattern
+  4. Created a Todo List
+  5. Arrays are references, destructuring
+  6. More features of loops:
+     break, continue, loops inside a function
+     
+-->
 
 
 <script>
@@ -100,6 +111,124 @@
     numDoubled.push(num * 2);
   };
   console.log(numDoubled);
+
+
+
+
+
+
+
+
+/* In JavaScript:
+   • A variable that holds a primitive stores the **value itself**.
+   • A variable that holds an object (including arrays) stores a **reference** – like a label pointing to the object’s location in memory. */
+
+/* General rule */ 
+// Primitive → value stored directly
+// Object/array → reference stored
+
+/* Demonstration */
+// array1 holds a reference to an array object
+const array1 = [1, 2, 3];   
+// array2 receives the same reference
+const array2 = array1;      
+// mutates the shared array
+array2.push(4);             
+// → [1, 2, 3, 4]
+console.log(array1);        
+
+let number1 = 1;            // number1 holds the primitive value 1
+let number2 = number1;      // number2 gets a **copy** of that value
+number2 = number2 + 2;      // number2 becomes 3, number1 remains 1
+console.log(number1, number2); // → 1 3
+
+
+/*in this code, i am using slice() method to **shallow copy** arrayx1 to arrayx2 so that any changes arrayx2 made will not mutate arrayx1 variable, preventing arrayx2 from getting assigned to the same pointer as arrayx1. this is similar (not the same) to how primitive value behave in which each variables contain its own value:*/
+const arrayx1 = [1,2,3]
+const arrayx2 = arrayx1.slice()
+arrayx2.push(4)
+console.log(arrayx1) //[1,2,3]
+console.log(arrayx2) //[1,2,3,4]
+
+
+/*de-structuring*/
+/*
+instead of writing a longer code to assign variable to specific array element in order like this:
+  arrayx3 = [1,2,3]
+  const firstValue = arrayx3[0]
+  const secondValue = arrayx3[1]
+you can use this code instead:
+*/
+  const [firstValue, secondValue] = [1,2,3]
+  console.log(firstValue, secondValue)
+
+
+/* customizing loop */
+/*
+loop provides options to control its behaviour other than simple conditionals. using *break* to halt the entire loop or *continue* to skip an iteration, the coder can control the expected output 
+*/
+
+for (let i=1; i<=10; i++) {
+  if (i%3 === 0) {
+    // skip any number divisible by 3
+    continue
+  }
+  console.log(i)
+  if (i === 8) {
+    // end the loop
+    break
+  }
+}
+
+
+  /* 
+  using while loop requires an exception on *continue* to resume loop's iteration and it needs to be manually stated  in the begining of a loop, otherwise, *continue* will result in an infinite loop.
+  in this code we demonstrate an example where a conditional statement inside a *while* loop skip an iteration if a number is divisible by 3 using *continue*. *i++* was added before that to ensure the loop continues its iteration instead of re-evaluating the conditional over and over agin.
+  the code was purposefuly written as redundant to illustrate the point in real-world scenarion
+  */
+function indivisibleByThree () {
+  let i = 1
+
+  while (i <= 10) {
+    if (i%3 === 0) {
+      i++
+      continue
+    }
+    console.log(i)
+    i++
+  }
+}
+
+indivisibleByThree ();
+
+
+
+
+  /*
+  example using function's return, which will stop any operation in a function and return a value
+  */
+
+function doublingAgain(nums) {
+  const numsDoubled = []
+  for (let i=0; i<nums.length; i++) {
+    const num = nums[i]
+    if (num===0) {
+      // either break or return<value> will stop the entire process
+      break
+    }
+    numsDoubled.push(num*2)
+  }
+  return numsDoubled
+}
+console.log(doublingAgain([2, 2, 5, 0, 5]))
+
+
+  /*
+  AI prompt
+
+  i will write my understanding of javascript. i need you to point out any mistakes, inaccuracies, or insufficient explanation without going too deep. i also want you to give me some follow-up questions, along with a short but precise answer to them if you are not sure that i understand what i write. at the end of your assessment, please give me an overall rating from 1 for the worst to 10 for the best, along with your reasoning
+  */
+  /**/
 </script>
 </body>
 </html>
